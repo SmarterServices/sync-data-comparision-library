@@ -164,5 +164,32 @@
         "status": "removed"
       }
     ]
+  },
+  "noChange": {
+    "title": "Should return [empty changes array] with [updated] status",
+    "primaryKeys": [
+      "id"
+    ],
+    "source": [
+      {
+        "id": 1,
+        "value": 5
+      }
+    ],
+    "target": [
+      {
+        "id": 1,
+        "value": 5
+      }
+    ],
+    "result": [
+      {
+        "primaryKey": {
+          "id": 1
+        },
+        "status": "updated",
+        "changes": []
+      }
+    ]
   }
 }
