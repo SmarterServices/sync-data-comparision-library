@@ -1,0 +1,33 @@
+{
+  "name": "sync-data-comparision-library",
+  "version": "0.0.1",
+  "description": "sync-data-comparision-library",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc mocha test/lib/client && nyc report --reporter=lcov",
+    "lint": "eslint ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SmarterServices/sync-data-comparision-library.git"
+  },
+  "keywords": [
+    "sync"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SmarterServices/sync-data-comparision-library/issues"
+  },
+  "homepage": "https://github.com/SmarterServices/sync-data-comparision-library#readme",
+  "dependencies": {
+    "deep-diff": "^0.3.8"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.10.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "mocha": "^4.0.1",
+    "nyc": "^11.2.1"
+  }
+}

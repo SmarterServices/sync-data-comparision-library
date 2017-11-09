@@ -1,0 +1,195 @@
+{
+  "new": {
+    "title": "Should compare items and return with [new] status",
+    "primaryKeys": [
+      "id"
+    ],
+    "source": [
+      {
+        "id": 1,
+        "value": 20
+      }
+    ],
+    "target": [],
+    "result": [
+      {
+        "primaryKey": {
+          "id": 1
+        },
+        "status": "new",
+        "data": {
+          "id": 1,
+          "value": 20
+        }
+      }
+    ]
+  },
+  "updated": {
+    "title": "Should compare items and return with [updated] status",
+    "primaryKeys": [
+      "id"
+    ],
+    "source": [
+      {
+        "id": 1,
+        "value": 5
+      }
+    ],
+    "target": [
+      {
+        "id": 1,
+        "value": 10
+      }
+    ],
+    "result": [
+      {
+        "primaryKey": {
+          "id": 1
+        },
+        "status": "updated",
+        "changes": [
+          {
+            "kind": "E",
+            "path": [
+              "value"
+            ],
+            "lhs": 5,
+            "rhs": 10
+          }
+        ]
+      }
+    ]
+  },
+  "removed": {
+    "title": "Should compare items and return with [removed] status",
+    "primaryKeys": [
+      "id"
+    ],
+    "source": [],
+    "target": [
+      {
+        "id": 1,
+        "value": 5
+      }
+    ],
+    "result": [
+      {
+        "primaryKey": {
+          "id": 1
+        },
+        "status": "removed"
+      }
+    ]
+  },
+  "multipleKeys": {
+    "title": "Should compare items with [multiple primary keys]",
+    "primaryKeys": [
+      "id",
+      "name"
+    ],
+    "source": [],
+    "target": [
+      {
+        "id": 1,
+        "name": "A",
+        "value": 5
+      }
+    ],
+    "result": [
+      {
+        "primaryKey": {
+          "id": 1,
+          "name": "A"
+        },
+        "status": "removed"
+      }
+    ]
+  },
+  "multipleTypes": {
+    "title": "Should compare items consisting of [multiple types] and return different statuses for different types",
+    "primaryKeys": [
+      "id"
+    ],
+    "source": [
+      {
+        "id": 1,
+        "value": 10
+      },
+      {
+        "id": 2,
+        "value": 20
+      }
+    ],
+    "target": [
+      {
+        "id": 1,
+        "value": 15
+      },
+      {
+        "id": 3,
+        "value": 30
+      }
+    ],
+    "result": [
+      {
+        "primaryKey": {
+          "id": 1
+        },
+        "status": "updated",
+        "changes": [
+          {
+            "kind": "E",
+            "path": [
+              "value"
+            ],
+            "lhs": 10,
+            "rhs": 15
+          }
+        ]
+      },
+      {
+        "primaryKey": {
+          "id": 2
+        },
+        "status": "new",
+        "data": {
+          "id": 2,
+          "value": 20
+        }
+      },
+      {
+        "primaryKey": {
+          "id": 3
+        },
+        "status": "removed"
+      }
+    ]
+  },
+  "noChange": {
+    "title": "Should return [empty changes array] with [updated] status",
+    "primaryKeys": [
+      "id"
+    ],
+    "source": [
+      {
+        "id": 1,
+        "value": 5
+      }
+    ],
+    "target": [
+      {
+        "id": 1,
+        "value": 5
+      }
+    ],
+    "result": [
+      {
+        "primaryKey": {
+          "id": 1
+        },
+        "status": "updated",
+        "changes": []
+      }
+    ]
+  }
+}
